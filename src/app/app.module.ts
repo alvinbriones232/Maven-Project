@@ -7,12 +7,14 @@ import { ClipboardComponent } from './clipboard/clipboard.component';
 import { FormsModule } from '@angular/forms';
 import { EditorComponent } from './editor/editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClipboardComponent,
-    EditorComponent
+    EditorComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
