@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
+
 @Component({
   selector: 'app-clipboard',
   templateUrl: './clipboard.component.html',
@@ -8,9 +9,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class ClipboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
 }
+

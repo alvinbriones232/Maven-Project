@@ -1,0 +1,63 @@
+<div class="row" id="editor-wrapper">
+		<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+      <form id="userInfoForm">
+          <ngb-tabset [destroyOnHide]="false">
+            <ngb-tab title="General">
+              <ng-template ngbTabContent>
+                <div class="form-group row">
+                  <input type="text" class="form-control" id="name" [formControl]="name" placeholder="Name">
+                </div>
+                <div class="form-group row">
+                  <input type="email" class="form-control" id="email" [formControl]="email" placeholder="E-mail">
+                </div>
+                <div class="form-group row">
+                  <input type="text" class="form-control" id="company" [formControl]="company" placeholder="Company">
+                </div>
+                <div class="form-group row">
+                  <input type="email" class="form-control" id="occupation" [formControl]="occupation" placeholder="Occupation">
+                </div>
+                <div class="form-group row">
+                  <input type="email" class="form-control" id="mobile" [formControl]="mobile" placeholder="mobile">
+                </div>
+                
+                
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Image">
+              <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+              <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+              craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+              cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+              yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+              shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+              sint qui sapiente accusamus tattooed echo park.</p>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </form>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 clipboard-inputs" id="clipboard">
+        <!-- <p if="name.value != ''">{{name.value}}</p>
+        <p>{{email.value}}</p> -->
+        <table>
+          <tr>
+            <td><b>{{name.value}}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <span><b>{{occupation.value}}</b> </span>
+                <span [hidden] = "company.value == ''"> | {{company.value}}</span>
+              </div>
+            </td>
+          </tr>
+          <tr [hidden]="email.value == '' ">
+            <td><p style="color:#FA301F">email: <a href="mailto:{{email.value}}">{{email.value}}</a> </p></td>
+          </tr>
+          <tr [hidden]="mobile.value == ''">
+            <td><p style="color:#FA301F">phone: <a href="tel:{{mobile.value}}">{{mobile.value}}</a></p></td>
+          </tr>
+        </table>
+        <button id="copy-clipboard-btn" class="btn btn-success" data-clipboard-action="copy" data-clipboard-target="#clipboard">Copy clipboard</button>
+    </div>
+  </div>
