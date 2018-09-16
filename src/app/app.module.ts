@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { EditorComponent } from './editor/editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

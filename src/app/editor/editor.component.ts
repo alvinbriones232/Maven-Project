@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+
 declare var ClipboardJS:any;
 const URL = 'http://localhost:3000/api/upload';
 @Component({
@@ -17,6 +18,13 @@ export class EditorComponent implements OnInit {
   mobile = new FormControl('');
   public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
 
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  cropperReady = false;
+
+  
+
   constructor() { }
 
   ngOnInit() {
@@ -27,6 +35,20 @@ export class EditorComponent implements OnInit {
          alert('File uploaded successfully');
      };
     
+  }
+
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCroppedBase64(image: string) {
+      this.croppedImage = image;
+  }
+  imageLoaded() {
+    this.cropperReady = true;
+  }
+  imageLoadFailed () {
+    console.log('Load failed');
   }
 
 }

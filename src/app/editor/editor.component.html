@@ -25,13 +25,33 @@
             </ngb-tab>
             <ngb-tab title="Image">
               <ng-template ngbTabContent>
-                  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                  <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
 
                   <button type="button" class="btn btn-success btn-s" 
                     (click)="uploader.uploadAll()" 
                     [disabled]="!uploader.getNotUploadedItems().length" accepts=".jpg,.jpeg,.png,.gif,.bmp,.tiff" >
                         Upload an Image
-                  </button>
+                  </button> -->
+                  
+                  <input type="file" (change)="fileChangeEvent($event)" />
+
+                  <image-cropper
+                    [imageChangedEvent]="imageChangedEvent"
+                    [maintainAspectRatio]="true"
+                    [aspectRatio]="4 / 3"
+                    [resizeToWidth]="128"
+                    [roundCropper]="false"
+                    format="jpeg"
+                    (imageCroppedBase64)="imageCroppedBase64($event)"
+                    (imageLoaded)="imageLoaded()"
+                    (loadImageFailed)="loadImageFailed()"
+                    style="max-height: 33vh"
+                    [style.display]="cropperReady ? null : 'none'"
+                  ></image-cropper>
+                  <img [src]="croppedImage" />
+                  
+
+                  
               </ng-template>
             </ngb-tab>
           </ngb-tabset>
